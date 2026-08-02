@@ -1,0 +1,47 @@
+generated: '2026-07-21'
+method: derived
+source: grpc/timber-observability.proto
+api: Vector Observability API
+notes: >-
+  Vector's own programmable surface is a gRPC API (not REST/OpenAPI, not OAuth).
+  Standards below describe the API surface itself; Vector's broad protocol
+  interoperability as a data pipeline (OpenTelemetry, Prometheus, StatsD, Syslog,
+  Datadog agent, Fluent, Loki, etc.) is via its sources/sinks catalog, not its
+  control API, and is listed separately as interop.
+standards:
+  - id: grpc
+    conforms: true
+    evidence: The Observability API is served over gRPC (proto3, published .proto in grpc/).
+  - id: protobuf
+    conforms: true
+    evidence: Message schemas defined in proto3 (proto/vector/*.proto).
+  - id: semver
+    conforms: true
+    evidence: Releases follow semantic versioning (pre-1.0).
+  - id: oauth2
+    conforms: false
+    evidence: The API has no authentication of any kind.
+  - id: openid-connect
+    conforms: false
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: gRPC status codes are used, not HTTP problem+json.
+  - id: rfc9116-security-txt
+    conforms: false
+    evidence: No /.well-known/security.txt on vector.dev (404); disclosure is via SECURITY.md.
+interop_protocols_supported_as_pipeline:
+  note: >-
+    These are source/sink integrations Vector speaks as a data pipeline, drawn
+    from the components reference (https://vector.dev/docs/reference/configuration/),
+    not conformance claims of the control API.
+  protocols:
+    - opentelemetry
+    - prometheus
+    - statsd
+    - syslog
+    - datadog-agent
+    - fluent
+    - loki
+    - kafka
+    - amqp
+    - nats

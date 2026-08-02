@@ -1,0 +1,43 @@
+generated: '2026-07-21'
+method: searched
+source: https://vector.dev/docs/reference/cli/
+name: vector
+description: >-
+  Vector is a single static binary managed through a command-line interface. The
+  root command (no subcommand) starts Vector against a configuration file; the
+  subcommands cover validation, config generation, topology inspection, live
+  event tapping, and a VRL REPL.
+install:
+  - method: homebrew
+    command: brew tap vectordotdev/brew && brew install vector
+  - method: shell-installer
+    command: curl --proto '=https' --tlsv1.2 -sSfL https://sh.vector.dev | bash
+  - method: docker
+    command: docker run timberio/vector:latest-debian
+  - method: apt
+    note: Vector APT repository (Debian/Ubuntu)
+  - method: yum
+    note: Vector YUM repository (RHEL/CentOS/Amazon Linux)
+  - method: msi
+    note: Windows installer
+install_docs: https://vector.dev/download/
+subcommands:
+  - name: top
+    description: Real-time terminal dashboard of component throughput and metrics.
+  - name: tap
+    description: Observe events flowing out of (or into) components in real time.
+  - name: validate
+    description: Validate a Vector configuration without starting the pipeline.
+  - name: generate
+    description: Generate a Vector configuration from a source/transform/sink expression.
+  - name: graph
+    description: Generate a DOT-format graph of the configured topology.
+  - name: list
+    description: List available components (sources, transforms, sinks).
+  - name: test
+    description: Run unit tests defined against a Vector configuration.
+  - name: vrl
+    description: Run the Vector Remap Language (VRL) REPL / execute VRL programs.
+notes:
+  - Subcommand set verified from the CLI reference page (vector.dev/docs/reference/cli/).
+  - The `vector tap` flow is also exposed programmatically via the gRPC ObservabilityService StreamOutputEvents RPC (grpc/timber-observability.proto).

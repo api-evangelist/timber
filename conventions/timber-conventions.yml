@@ -1,0 +1,45 @@
+generated: '2026-07-21'
+method: searched
+source: https://vector.dev/docs/reference/api/
+api: Vector Observability API
+summary: >-
+  Vector is a configuration-driven observability pipeline (single Rust binary),
+  not an HTTP SaaS. Its programmable surface is a local gRPC "Observability API"
+  for inspecting and interacting with a running instance. These conventions
+  capture the cross-cutting request/response semantics of that API surface.
+transport:
+  protocol: gRPC
+  compatibility_endpoint:
+    method: GET
+    path: /health
+    note: >-
+      An HTTP healthcheck served on the same port as the gRPC API, preserved for
+      compatibility with Vector 0.54.0 and earlier so existing HTTP probes
+      (AWS ALB, Kubernetes HTTP probes) keep working.
+  default_address: 127.0.0.1:8686
+  configurable_via: api.address
+authentication:
+  style: none
+  reference: authentication/timber-authentication.yml
+idempotency:
+  supported: false
+  note: The gRPC observability API is read/observe oriented; no idempotency-key contract is documented.
+pagination:
+  style: none-documented
+versioning:
+  scheme: semver
+  cadence: >-
+    Minor releases roughly monthly (v0.54.0 → v0.57.0 across 2026); pre-1.0
+    project, so minor versions may carry breaking changes documented in release
+    notes / upgrade guides.
+  reference: lifecycle/timber-lifecycle.yml
+error_handling:
+  style: grpc-status-codes
+  note: Errors surface via standard gRPC status codes; there is no RFC 9457 problem+json envelope (the API is gRPC, not REST/JSON).
+configuration_formats: [yaml, toml, json]
+transform_language:
+  name: Vector Remap Language (VRL)
+  reference: https://vector.dev/docs/reference/vrl/
+notes:
+  - The primary "interface" to Vector is its configuration file plus the CLI, not the API.
+  - Live event inspection is done via the `vector tap` CLI command and the API's tap capability.

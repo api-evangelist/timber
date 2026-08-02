@@ -1,0 +1,26 @@
+# Timber / Vector
+
+> Timber (timber.io) is the developer-tools company, backed by Lux Capital, that built Vector — an open-source, high-performance observability data pipeline written in Rust. timber.io now redirects to vector.dev, and the project is stewarded by Datadog (which acquired Timber in 2021). Vector collects, transforms, and routes logs, metrics, and traces from many sources through the Vector Remap Language (VRL) to many sinks, running as a single static binary in agent or aggregator roles. It is configuration-driven (YAML/TOML/JSON); its programmable surface is a local gRPC "Observability API" for inspecting a running instance.
+
+## APIs
+- [Vector Observability API](https://vector.dev/docs/reference/api/): Local gRPC API (default 127.0.0.1:8686, api.enabled=false, no authentication) to inspect component topology, read internal metrics/health, and tap live events. Includes a GET /health HTTP compatibility endpoint.
+
+## Specs
+- [Observability API protobuf](grpc/timber-observability.proto): proto3 service definition for the gRPC Observability API.
+- [Vector protobuf](grpc/timber-vector.proto): proto3 message definitions used by Vector.
+
+## Docs
+- [Documentation](https://vector.dev/docs/)
+- [Quickstart](https://vector.dev/docs/setup/quickstart/)
+- [API reference](https://vector.dev/docs/reference/api/)
+- [CLI reference](https://vector.dev/docs/reference/cli/)
+- [VRL reference](https://vector.dev/docs/reference/vrl/)
+- [Components (sources/transforms/sinks)](https://vector.dev/docs/reference/configuration/)
+- [Download / install](https://vector.dev/download/)
+
+## Project
+- [GitHub](https://github.com/vectordotdev/vector)
+- [Security policy](https://github.com/vectordotdev/vector/blob/master/SECURITY.md)
+- [Releases](https://vector.dev/releases/)
+- [Blog](https://vector.dev/blog/)
+- [Community / support](https://vector.dev/community/)

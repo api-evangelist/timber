@@ -1,0 +1,31 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/vectordotdev/vector/releases
+docs: https://vector.dev/releases/
+project: Vector
+scheme: semver
+current_version: v0.57.0
+notes: >-
+  Vector is pre-1.0 and ships minor releases roughly monthly. Because the project
+  is < 1.0, minor version bumps can include breaking changes; each release has
+  detailed release notes and an upgrade guide on vector.dev. Entries below are the
+  recent release window verified from GitHub Releases (dates are publish dates).
+  The `vdev-*` tags are the internal `vdev` developer tool, not Vector itself, and
+  are omitted.
+entries:
+  - version: v0.57.0
+    date: '2026-07-14'
+    url: https://github.com/vectordotdev/vector/releases/tag/v0.57.0
+    release_notes: https://vector.dev/releases/0.57.0/
+  - version: v0.56.0
+    date: '2026-06-03'
+    url: https://github.com/vectordotdev/vector/releases/tag/v0.56.0
+    release_notes: https://vector.dev/releases/0.56.0/
+  - version: v0.55.0
+    date: '2026-04-22'
+    url: https://github.com/vectordotdev/vector/releases/tag/v0.55.0
+    release_notes: https://vector.dev/releases/0.55.0/
+  - version: v0.54.0
+    date: '2026-03-10'
+    url: https://github.com/vectordotdev/vector/releases/tag/v0.54.0
+    release_notes: https://vector.dev/releases/0.54.0/

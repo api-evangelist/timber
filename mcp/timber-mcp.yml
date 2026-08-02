@@ -1,0 +1,40 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: grpc/timber-observability.proto
+notes: >-
+  No official hosted/remote MCP server was found for Vector. This is a CANDIDATE
+  tool list derived from the gRPC ObservabilityService RPCs — a Vector instance's
+  local observability API (default 127.0.0.1:8686). Each RPC maps to one candidate
+  MCP tool. Streaming RPCs would map to polling/subscription tools. Not published;
+  do not treat as an available server.
+server:
+  name: vector-observability
+  transport: grpc
+  address: 127.0.0.1:8686
+  published: false
+tools:
+  - name: get_meta
+    description: Get metadata about the Vector instance (version, hostname).
+    source_operation: grpc/timber-observability.proto#ObservabilityService.GetMeta
+  - name: get_components
+    description: List configured components (sources, transforms, sinks) and their metrics.
+    source_operation: grpc/timber-observability.proto#ObservabilityService.GetComponents
+  - name: get_allocation_tracing_status
+    description: Check whether allocation tracing is active on the instance.
+    source_operation: grpc/timber-observability.proto#ObservabilityService.GetAllocationTracingStatus
+  - name: stream_heartbeat
+    description: Stream periodic heartbeat timestamps.
+    source_operation: grpc/timber-observability.proto#ObservabilityService.StreamHeartbeat
+  - name: stream_uptime
+    description: Stream instance uptime in seconds.
+    source_operation: grpc/timber-observability.proto#ObservabilityService.StreamUptime
+  - name: stream_component_allocated_bytes
+    description: Stream memory allocated per component.
+    source_operation: grpc/timber-observability.proto#ObservabilityService.StreamComponentAllocatedBytes
+  - name: stream_component_metrics
+    description: Stream per-component throughput or total metrics for a chosen metric.
+    source_operation: grpc/timber-observability.proto#ObservabilityService.StreamComponentMetrics
+  - name: stream_output_events
+    description: Tap and stream events flowing out of components matching glob patterns.
+    source_operation: grpc/timber-observability.proto#ObservabilityService.StreamOutputEvents

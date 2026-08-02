@@ -1,8 +1,19 @@
 aid: timber
 name: Timber
-description: 'Timber is a company surfaced as a portfolio company of lux-capital and added to the API
-  Evangelist network as a stub for enrichment. Sector: developer-tools. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  Timber (timber.io) is the developer-tools company, backed by Lux Capital, that
+  built Vector — an open-source, high-performance observability data pipeline
+  written in Rust. The timber.io domain now redirects to vector.dev, and the
+  project is stewarded by Datadog (which acquired Timber in 2021). Vector
+  collects, transforms, and routes logs, metrics, and traces from many sources
+  through a Vector Remap Language (VRL) transform layer to many sinks, running as
+  a single static binary in agent or aggregator roles. Vector is configuration-
+  driven (YAML/TOML/JSON) rather than an HTTP SaaS; its programmable surface is a
+  local gRPC "Observability API" that lets tooling inspect and interact with a
+  running Vector instance (component topology, metrics, health, live event
+  tapping). This profile enriches the Timber/Vector lead with the real developer
+  surface: the gRPC API, the vector CLI, distribution packages, and project
+  security posture.
 url: https://raw.githubusercontent.com/api-evangelist/timber/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -10,15 +21,112 @@ x-backed-by:
 - lux-capital
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
 - Developer Tools
-apis: []
+- Observability
+- Logs
+- Metrics
+- Data Pipeline
+- Logging
+- Monitoring
+- Open Source
+- gRPC
+- Rust
+- Datadog
+image: https://vector.dev/img/open-graph.png
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- name: Vector Observability API
+  description: >-
+    Vector ships with a local gRPC API that lets you interact with a running
+    Vector instance — inspect component topology, read internal metrics and
+    health, and tap live events flowing through the pipeline. It is disabled by
+    default (api.enabled=false) and binds to 127.0.0.1:8686. The API has no
+    authentication and is intended for isolated/debugging environments only; it
+    must not be exposed to untrusted clients. A GET /health HTTP healthcheck is
+    served on the same port for compatibility with existing HTTP probes.
+  humanURL: https://vector.dev/docs/reference/api/
+  baseURL: https://vector.dev
+  properties:
+  - type: Documentation
+    url: https://vector.dev/docs/reference/api/
+  - type: Protobuf
+    url: grpc/timber-observability.proto
+  - type: Protobuf
+    url: grpc/timber-vector.proto
+common:
+- type: DomainSecurity
+  url: security/timber-domain-security.yml
+- type: DeveloperPortal
+  url: https://vector.dev/docs/
+- type: Documentation
+  url: https://vector.dev/docs/
+- type: GettingStarted
+  url: https://vector.dev/docs/setup/quickstart/
+- type: APIReference
+  url: https://vector.dev/docs/reference/api/
+- type: GitHubOrganization
+  url: https://github.com/vectordotdev
+- type: Blog
+  url: https://vector.dev/blog/
+- type: Support
+  url: https://vector.dev/community/
+- type: Download
+  url: https://vector.dev/download/
+- type: Protobuf
+  name: Vector Observability API (gRPC)
+  url: grpc/timber-observability.proto
+- type: CLI
+  name: vector CLI
+  url: cli/timber-cli.yml
+- type: Authentication
+  url: authentication/timber-authentication.yml
+- type: Conventions
+  url: conventions/timber-conventions.yml
+- type: Packages
+  url: packages/timber-packages.yml
+- type: WellKnown
+  url: well-known/timber-well-known.yml
+- type: MCPServer
+  url: mcp/timber-mcp.yml
+- type: Conformance
+  url: conformance/timber-conformance.yml
+- type: DataModel
+  url: data-model/timber-data-model.yml
+- type: Lifecycle
+  url: lifecycle/timber-lifecycle.yml
+- type: Deprecation
+  url: https://vector.dev/highlights/
+- type: ChangeLog
+  url: changelog/timber-changelog.yml
+- type: LLMsTxt
+  url: llms/timber-llms.txt
+- type: VulnerabilityDisclosure
+  url: security/timber-vulnerability-disclosure.yml
+- type: Security
+  url: https://github.com/vectordotdev/vector/blob/master/SECURITY.md
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 15
+  pass: local-v1

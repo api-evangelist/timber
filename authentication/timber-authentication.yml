@@ -1,0 +1,29 @@
+generated: '2026-07-21'
+method: searched
+source: https://vector.dev/docs/reference/api/
+api: Vector Observability API
+summary:
+  types: [none]
+  authenticated: false
+  note: >-
+    The Vector Observability API (gRPC, plus a GET /health HTTP endpoint on the
+    same port) does not support authentication. The documentation explicitly
+    warns that it must only be enabled in isolated environments or for debugging
+    and must not be exposed to untrusted clients. There is no OAuth, API key, or
+    bearer-token surface. Access control is expected to be handled at the network
+    layer (bind address / firewall) rather than in the API itself.
+schemes: []
+network_controls:
+  - control: bind-address
+    default: 127.0.0.1:8686
+    description: >-
+      The API binds to loopback by default (api.address). To expose it (e.g. in a
+      Docker container) it must be bound to 0.0.0.0, which the docs flag as a
+      security-sensitive change to guard at the network level.
+  - control: enablement-flag
+    field: api.enabled
+    default: false
+    description: The API is disabled by default and must be explicitly enabled.
+docs:
+  - https://vector.dev/docs/reference/api/
+  - https://vector.dev/docs/reference/configuration/global-options/

@@ -1,0 +1,38 @@
+generated: '2026-07-21'
+method: derived
+source: grpc/timber-observability.proto
+notes: >-
+  Entity graph derived from the Vector Observability gRPC message definitions.
+  Vector's runtime model is a directed pipeline of Components (sources ->
+  transforms -> sinks); each component exposes Outputs and ComponentMetrics.
+entities:
+  - name: Component
+    description: A configured pipeline component (source, transform, or sink).
+    key: component_id
+    fields: [component_id, component_type, on_type, outputs, metrics]
+  - name: Output
+    description: A named output stream of a component.
+    key: output_id
+    fields: [output_id, sent_events_total]
+  - name: ComponentMetrics
+    description: Received/sent bytes and events totals for a component.
+    fields: [received_bytes_total, received_events_total, sent_bytes_total, sent_events_total]
+  - name: TappedEvent
+    description: An event captured from a component via event tapping.
+    fields: [component_id, component_type, component_kind, event]
+relationships:
+  - from: Component
+    to: Output
+    type: has_many
+    via: outputs
+  - from: Component
+    to: ComponentMetrics
+    type: has_one
+    via: metrics
+  - from: TappedEvent
+    to: Component
+    type: belongs_to
+    via: component_id
+enums:
+  ComponentType: [SOURCE, TRANSFORM, SINK]
+  MetricName: [received_events_throughput, sent_events_throughput, received_bytes_throughput, sent_bytes_throughput, received_events_total, sent_events_total, received_bytes_total, sent_bytes_total, errors_total]

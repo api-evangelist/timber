@@ -1,0 +1,31 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/vectordotdev/vector/releases
+project: Vector
+versioning:
+  scheme: semver
+  current: v0.57.0
+  pre_1_0: true
+  cadence: minor releases roughly monthly
+  docs: https://vector.dev/releases/
+  note: >-
+    Vector is pre-1.0; minor version bumps can include breaking changes, each
+    documented with release notes and an upgrade guide.
+release_notes: https://vector.dev/releases/
+security_policy:
+  url: https://github.com/vectordotdev/vector/blob/master/SECURITY.md
+  note: >-
+    Detailed project security policy (transparency, signed commits, protected
+    branches, dependency scanning, vulnerability remediation, disclosure).
+deprecation:
+  policy_url: https://vector.dev/highlights/
+  note: >-
+    Deprecations and breaking changes are announced through release highlights
+    and upgrade guides on vector.dev ahead of removal; no RFC 8594 Sunset/
+    Deprecation HTTP headers are relevant (the control API is gRPC).
+status_page: null
+status_page_note: >-
+  Vector is a self-hosted open-source binary, not a hosted SaaS, so there is no
+  uptime/status page for a Vector service. (Datadog, the steward, publishes
+  status.datadoghq.com for its hosted products.)
+deprecated_operations: []

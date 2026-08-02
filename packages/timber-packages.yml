@@ -1,0 +1,40 @@
+generated: '2026-07-21'
+method: searched
+source: https://vector.dev/download/
+notes: >-
+  Vector is distributed as a single Rust binary via system package managers and
+  container images, not as a language client-SDK library — so there is no npm /
+  PyPI client SDK to install. The one first-party library package is the Vector
+  Remap Language (VRL) crate. Verified: Docker Hub timberio/vector returned 200;
+  the crates.io `vrl` crate resolves to github.com/vectordotdev/vrl; the Homebrew
+  `vector` formula is served from the vectordotdev/brew tap (not homebrew-core).
+packages:
+  - kind: container
+    registry: docker-hub
+    name: timberio/vector
+    url: https://hub.docker.com/r/timberio/vector
+    install: docker pull timberio/vector
+    official: true
+  - kind: binary
+    registry: homebrew
+    name: vectordotdev/brew/vector
+    url: https://vector.dev/docs/setup/installation/package-managers/homebrew/
+    install: brew tap vectordotdev/brew && brew install vector
+    official: true
+  - language: rust
+    kind: library
+    registry: crates.io
+    name: vrl
+    url: https://crates.io/crates/vrl
+    install: cargo add vrl
+    official: true
+    note: Vector Remap Language (VRL) — the transform language, published as a standalone crate.
+distribution_channels:
+  - apt (Vector APT repository)
+  - yum (Vector YUM repository)
+  - helm (Kubernetes)
+  - msi (Windows)
+  - nix
+  - pacman
+  - archives (tar.gz)
+  - source (cargo build)
