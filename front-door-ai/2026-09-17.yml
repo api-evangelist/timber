@@ -1,0 +1,25 @@
+# Front Door AI Index — timber — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: timber
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.vector.dev
+  final_host: vector.dev
+  ownership: inherited
+  owner: timber
+  shares_host_with: null
+  inherited_from: vector.dev
+  verdict: silent
+  score: null
+  host_score: 0
+  density: null
+  words: 588
+  tiers:
+    agentic: 0
+    core: 0
+    model: 0
+  ambiguous: 2
+  top_terms:
+    agent: 2
