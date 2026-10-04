@@ -56,7 +56,7 @@ tags:
 - Data Pipeline
 - Logging
 - Monitoring
-- Open-Source
+- Open Source
 - gRPC
 - Rust
 - Datadog
@@ -73,6 +73,7 @@ tags_raw:
 - gRPC
 - Rust
 - Datadog
+- Open-Source
 image: https://vector.dev/img/open-graph.png
 maintainers:
 - FN: Kin Lane
@@ -90,7 +91,6 @@ apis:
     must not be exposed to untrusted clients. A GET /health HTTP healthcheck is
     served on the same port for compatibility with existing HTTP probes.
   humanURL: https://vector.dev/docs/reference/api/
-  baseURL: https://vector.dev
   properties:
   - type: Documentation
     url: https://vector.dev/docs/reference/api/
