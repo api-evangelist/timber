@@ -7,14 +7,17 @@ front_door_ai:
   probed_at: '2026-09-17'
   host: www.vector.dev
   final_host: vector.dev
-  ownership: inherited
+  ownership: own
   owner: timber
   shares_host_with: null
-  inherited_from: vector.dev
+  inherited_from: null
+  alias_of: vector.dev
   verdict: silent
-  score: null
+  score: 0
+  band: 1
+  band_label: silent
   host_score: 0
-  density: null
+  density: 0.0
   words: 588
   tiers:
     agentic: 0
